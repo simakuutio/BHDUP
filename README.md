@@ -5,7 +5,7 @@
 # BHDUP
 
 
-Script to Automate Uploading using BHDAPI written using python 3.8 (mostly)
+Script to Automate Uploading using BHDAPI written using python 3.9 (mostly)
 
 ## Usage:
 
@@ -17,6 +17,7 @@ Run it from inside directory where you have all properly named releases make sur
 
     python3 bhdup.py  or python3 /path/to/bhdup.py
 
+Make sure there is nothing other than the Directories you want to make torrents of, the .env and the bhdup.py files in your current working directory.
 
 ## Install
 
@@ -46,17 +47,17 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-9. **Update `.env` file to have YOUR KEYS and change Screenshot times if you need follow the format in .env.example .**
+6. **Update `.env` file to have YOUR KEYS and change Screenshot times if you need follow the format in .env.example .**
 
 ## Notes:
 
-- If you mess up and get stuck with a ton of temp files and want to delete them all from the current directory before re-running the script, use the handy command:
+- If you mess up and get stuck with a ton of temp files and want to delete them all from the current directory before re-running the script, use this handy command:
 
-      rm -r *.files tmp mediainfo.txt *.torrent
+      rm -r *.files tmp *.png mediainfo.txt *.torrent
 
 - Only works with UHD Remux, BD Remux, DVD Remux, 2160p, 1080p and 720p, Might include missing categories later.
 
-- Assumes all directories are named correctly and media files are one directory deep.
+- Assumes all directories are named correctly, media files are one directory deep, and no whitespaces in names that will confuse mktorrent.
 
 - Logo made with courtesy of https://www.freelogodesign.org/
 

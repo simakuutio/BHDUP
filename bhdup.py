@@ -50,10 +50,8 @@ while ((anon != 0) and (anon != 1)):
 # MORE VARIABLES
 bhdurl = "https://beyond-hd.me/api/upload/"
 url = str(bhdurl + bhdapi)
-a = os.listdir()
-torrents = sorted(a)
+torrents = sorted(os.listdir())
 torrents.remove("bhdup.py")
-torrents.remove("requirements.txt")
 torrents.remove(".env")
 
 # SCREENSHOT FUNCTION
@@ -83,9 +81,9 @@ for t in tqdm(torrents):
     os.system("mediainfo " + t + "/" + video[0] + " > ./mediainfo.txt")
     print(Fore.YELLOW + "Mediainfo Generated")
     time.sleep(2)
-    screen_shots(t, video[0])
 
     # UPLOAD THUMBNAILS AND SAVE BBCODE TO VARIABLE
+    screen_shots(t, video[0])
     print(Fore.CYAN + "Starting Upload to imgbox")
     os.system("imgbox *.png -w 350 > tmp")
     os.system(r"grep -R 'Webpage\|Thumbnail' tmp | awk -F ' ' '{print $2}' | sed '1~2s/\(.*\)/]\[img]\1\[\/img]\[\/URL]/g ; N;s/\(.*\)\n\(.*\)/\2\1/ ; s/^/\[URL=/' | tr -d '[:space:]' > ./" + t + ".files/bbcode.txt")
